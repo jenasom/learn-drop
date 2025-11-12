@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1762845863023",
+    "email": "jenasom494@gmail.com",
+    "name": "Jenasom Jerry",
+    "profession": "Product Manager",
+    "subscribed_at": "2025-11-11T07:24:23.023Z",
+    "status": "active"
+  },
+  {
+    "id": "1762893748211",
+    "email": "askjaydeveloper@gmail.com",
+    "name": "Yusuf Amos",
+    "profession": "Marketer",
+    "subscribed_at": "2025-11-11T20:42:28.211Z",
+    "status": "unconfirmed",
+    "confirmToken": "12003ec61159b005f4da46165b19c8ab77826461"
+  },
+  {
+    "id": "1762936384348",
+    "email": "aurenwatches@gmail.com",
+    "name": "Thomas",
+    "profession": "Product Manager",
+    "subscribed_at": "2025-11-12T08:33:04.348Z",
+    "status": "unconfirmed"
+  },
+  {
+    "id": "1762938493017",
+    "email": "jenasomjerry@gmail.com",
+    "name": "Jenasom Jerry",
+    "profession": "Founder",
+    "subscribed_at": "2025-11-12T09:08:13.017Z",
+    "status": "unconfirmed"
+  }
+]

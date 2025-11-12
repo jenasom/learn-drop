@@ -1,0 +1,271 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Local user-provided font: place your font files in public/fonts/
+   e.g. public/fonts/what-the-hell.woff2 and public/fonts/what-the-hell.woff
+   The CSS below will prefer the local 'WhatTheHell' font when available.
+   If you want me to copy a font into the repo, upload the .woff/.woff2 files into
+   the workspace under public/fonts and I can add them directly. */
+@font-face {
+  font-family: 'WhatTheHell';
+  src: url('/fonts/what-the-hell.woff2') format('woff2'),
+       url('/fonts/what-the-hell.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Myriad Set local font (place files under public/fonts/) */
+@font-face {
+  font-family: 'MyriadSet';
+  src: url('/fonts/myriad-set.woff2') format('woff2'),
+       url('/fonts/myriad-set.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* -----------------------------
+   Global responsive helpers
+   - Ensure images, videos and svgs scale inside their containers
+   - Make tables break long words and remain scrollable when needed
+   - Provide a simple .container utility for consistent page width/padding
+   - Clamp heading sizes for better scaling on small screens
+ ----------------------------- */
+
+img, picture, video, svg {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Make tables responsive by default (use .overflow-x-auto wrappers where available)
+   and allow long words / emails to wrap instead of breaking the layout. */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+th, td {
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* Simple container utility (Tailwind has its own container class, but this ensures
+   non-Tailwind parts also get reasonable padding and max widths). */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+
+/* Responsive headings */
+h1 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+h2 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.25rem); }
+
+/* Ensure form controls don't overflow their containers */
+input, textarea, select, button {
+  max-width: 100%;
+}
+
+/* Small utility: limit very wide pre/code blocks to scroll instead of overflow layout */
+pre, code {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* Prefer Roboto (runtime-loaded) as requested; fall back to local/legacy fonts and system */
+  --font-sans: 'Roboto', 'Inter', 'MyriadSet', 'WhatTheHell', -apple-system, 'SF Pro Text', 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  /* Monospaced fallback — prefer SF Mono on Apple devices, then system monospaces */
+  --font-mono: 'SFMono-Regular', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Hide Next.js dev overlay / compiling indicator in development - user requested */
+#__next_dev_overlay__,
+#next-dev-overlay,
+.next-dev-overlay,
+#__next_build_indicator__,
+div[id^="__next_dev"],
+div[id^="next-dev"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Additional defensive rules to hide any floating dev widgets (Turbopack / Next runtime)
+   These target common id/class/data attributes and fixed-position small widgets that
+   appear in the bottom-left during development. If you have other site UI that uses
+   fixed bottom-left helpers, remove or narrow these selectors. */
+div[id^="__next"] ,
+div[id^="next"] ,
+div[class*="next-dev"],
+div[class*="__next"],
+[data-nextjs],
+[data-next],
+div[aria-label*="Next"],
+div[aria-label*="next"] {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Catch-all: hide small fixed-position boxes in the bottom-left corner which are
+   commonly used by dev overlays. This is broad — if it hides any of your app UI,
+   we'll narrow it down after you verify. */
+div[style*="position:fixed"][style*="bottom"],
+div[style*="position: fixed"][style*="bottom"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Specifically hide the small Next dev SVG control when present. Uses :has where available
+   and falls back to hiding any svg containing a path with class 'paused'. */
+svg:has(path.paused) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+svg path.paused {
+  display: none !important;
+}
